@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { UserContext } from "../context/UserPovider";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
   const [email, setEmail] = useState("laurafe03@hotmail.com");
@@ -8,10 +9,12 @@ const Login = () => {
   const { loginUser } = useContext(UserContext);
   const navega = useNavigate();
   const handleSubmitLogin = async (e) => {
+    console.log("data->_ :", e);
     e.preventDefault();
     try {
       await loginUser(email, password);
       console.log("usuario logeado");
+      navega("/");
     } catch (error) {
       console.log(error.code);
     }

@@ -8,7 +8,7 @@ import { UserContext } from "./context/UserPovider";
 import "./App.css";
 import Navbar from "./components/navbar";
 import RequiredAuth from "./components/RequiredAuth";
-import Register from "./components/Register";
+import Register from "./routes/Register";
 
 function App() {
   const [count, setCount] = useState(0);

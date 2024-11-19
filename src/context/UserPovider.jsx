@@ -31,7 +31,7 @@ const UserPovider = (props) => {
 
   //mantener al ususario presente en el sitio
   useEffect(() => {
-    const unsuscribe = onAuthStateChanged(auth, () => {
+    const unsuscribe = onAuthStateChanged(auth, (user) => {
       console.log(user);
       if (user) {
         const { email, photoURL, displayName, uid } = user;
@@ -45,7 +45,9 @@ const UserPovider = (props) => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser, registerUser, loginUser }}>
+    <UserContext.Provider
+      value={{ user, setUser, registerUser, loginUser, singOutUser }}
+    >
       {props.children}
     </UserContext.Provider>
   );
